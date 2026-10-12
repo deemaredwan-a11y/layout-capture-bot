@@ -26,8 +26,8 @@ describe("analysis interface lifecycle", () => {
     expect(container.querySelector('[aria-busy="true"]')).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeDisabled();
     if (!resolve) throw new Error("Request did not start");
-    resolve({ matches: ["Verified skill"], gaps: ["Verified gap"], steps: ["Verified recommendation"] });
-    await waitFor(() => expect(container.querySelector("li")?.textContent).toBe("Verified recommendation"));
+    resolve({ relevantSkills: [], potentialGaps: [], recommendedNextSteps: [{ action: "Verified recommendation", reason: "Why" }] });
+    await waitFor(() => expect(container.querySelector("li")?.textContent).toContain("Verified recommendation"));
     expect(container.querySelector('[aria-busy="true"]')).not.toBeInTheDocument();
   });
 

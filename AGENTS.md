@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep AI Fit Analysis presentation in a request-driven interface; only a resolved analysis request can produce a success result, so an unconfigured service never displays fabricated results.
+- AI Fit Analysis runs in a server function (src/lib/fit-analysis.functions.ts) and output is schema-validated before display; keeps the AI key server-side and blocks unverified results.
