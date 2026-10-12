@@ -8,7 +8,7 @@ describe("analysis rules", () => {
   it("AI is reported unavailable", () => expect(AI_SERVICE_CONFIGURED).toBe(false));
   it("requires skills for analysis", () => expect(hasEnoughData({ ...sampleProfile, skills: "" })).toBe(false));
   it("demo matches skills", () => {
-    const r = demoComparison({ ...sampleProfile, skills: "Python, APIs" }, opportunities[0]);
+    const r = demoComparison({ ...sampleProfile, skills: "Python, APIs" }, opportunities[0]!);
     expect(r.matches).toEqual(["Python", "APIs"]);
     expect(r.gaps).toEqual(["AI", "Automation"]);
   });
