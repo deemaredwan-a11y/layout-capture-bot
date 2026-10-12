@@ -2,7 +2,16 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { AnalysisInterface } from "@/components/AnalysisInterface";
 import { getOpportunity } from "@/lib/opportunities";
-import { useProfile } from "@/lib/profile";
+import { useProfile, type Profile } from "@/lib/profile";
+import { AnalysisFailure } from "@/lib/analysis";
+import { analyzeFit } from "@/lib/fit-analysis.functions";
+import type { Opportunity } from "@/lib/opportunities";
+
+async function requestAnalysis(profile: Profile, opportunity: Opportunity) {
+  const res = await analyzeFit({ data: { profile, opportunityId: opportunity.id } });
+  if (!res.ok) throw new AnalysisFailure(res.kind, res.message);
+  return res.result;
+}
 
 export const Route = createFileRoute("/opportunities/$id/analysis")({
   loader: ({ params }) => {
@@ -33,7 +42,7 @@ function AnalysisPage() {
       <p className="mt-2 text-muted-foreground">
         {opportunity.title} at {opportunity.company} · Profile: {profile.name || "Unnamed"} {isSample && <span className="text-warning-foreground">(sample profile)</span>}
       </p>
-      <AnalysisInterface profile={profile} opportunity={opportunity} />
+      <AnalysisInterface profile={profile} opportunity={opportunity} request={requestAnalysis} />
     </Layout>
   );
 }
