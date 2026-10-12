@@ -5,6 +5,8 @@ import { opportunities } from "@/lib/opportunities";
 export const Route = createFileRoute("/opportunities/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Opportunities — SkillBridge Lite" },
       { name: "description", content: "Browse sample opportunities and check your fit." },
       { property: "og:title", content: "Opportunities — SkillBridge Lite" },

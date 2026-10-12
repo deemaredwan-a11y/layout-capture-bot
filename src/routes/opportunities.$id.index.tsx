@@ -10,6 +10,8 @@ export const Route = createFileRoute("/opportunities/$id/")({
   },
   head: ({ loaderData }) => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: loaderData ? `${loaderData.title} at ${loaderData.company} — SkillBridge Lite` : "Opportunity — SkillBridge Lite" },
       { name: "description", content: loaderData?.description ?? "Opportunity details" },
       { property: "og:title", content: loaderData ? `${loaderData.title} — SkillBridge Lite` : "Opportunity" },

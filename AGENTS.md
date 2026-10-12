@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep AI Fit Analysis presentation in a request-driven interface; only a resolved analysis request can produce a success result, so an unconfigured service never displays fabricated results.

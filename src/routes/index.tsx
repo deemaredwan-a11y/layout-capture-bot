@@ -4,6 +4,8 @@ import { Layout, btn } from "@/components/Layout";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "SkillBridge Lite — Understand Your Fit" },
       { name: "description", content: "See how your skills and projects relate to professional opportunities, and discover what to improve next." },
       { property: "og:title", content: "SkillBridge Lite — Understand Your Fit" },

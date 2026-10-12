@@ -6,6 +6,8 @@ import { useProfile, type Profile } from "@/lib/profile";
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "My Profile — SkillBridge Lite" },
       { name: "description", content: "Enter your skills, projects, and experience." },
       { property: "og:title", content: "My Profile — SkillBridge Lite" },
