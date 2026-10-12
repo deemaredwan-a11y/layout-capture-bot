@@ -32,7 +32,7 @@ export const analyzeFit = createServerFn({ method: "POST" })
     if (!hasEnoughData(data.profile))
       return { ok: false, kind: "insufficient", message: "Add your skills and at least one project or experience." };
 
-    const apiKey = process.env.LOVABLE_API_KEY;
+    const apiKey = process.env['LOVABLE_API_KEY'];
     if (!apiKey) return { ok: false, kind: "unavailable", message: "The AI service is not configured." };
 
     const p = data.profile;
